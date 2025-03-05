@@ -9,7 +9,7 @@ class CategoryViewSet(viewsets.ViewSet, generics.ListAPIView):
 
 class CourseViewSet(viewsets.ViewSet, generics.ListAPIView):
     queryset = Course.objects.filter(active=True)
-    serializer_class = serializers.CategorySerializer
+    serializer_class = serializers.CourseSerializer
     pagination_class = paginators.CoursePaginator
 
 
