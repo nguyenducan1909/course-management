@@ -12,23 +12,23 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
-from django.conf.global_settings import AUTH_USER_MODEL, MEDIA_ROOT
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 MEDIA_ROOT = '%s/courses/static/' % BASE_DIR
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(2&+4u+dzco$p=f#_&in$)+^q(h993z_5h_vkw_gz@*ew6^u*^'
+SECRET_KEY = 'django-insecure-(t1-=cbj&_(@mvsmep#5_o1(n!18mq=1pl#d9aq0=!(rs#@_ky'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
 
 # Application definition
 
@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'courses.apps.CoursesConfig',
     'ckeditor',
-    'ckeditor_uploader'
+    'ckeditor_uploader',
+    'rest_framework',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +58,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'courseapisv1.urls'
 
-CKEDITOR_UPLOAD_PATH = "ckeditors/lessons/%Y/%m"
+CKEDITOR_UPLOAD_PATH = "ckeditors/lessons/"
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -75,6 +78,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'courseapisv1.wsgi.application'
 
+
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -84,15 +88,15 @@ DATABASES = {
         'NAME': 'coursedb',
         'USER': 'root',
         'PASSWORD': 'root',
-        'HOST': ''  # mặc định localhost
+        'HOST': '' # mặc định localhost
     }
 }
 
 import pymysql
-
 pymysql.install_as_MySQLdb()
 
-AUTH_USER_MODEL = 'courses.User'
+AUTH_USER_MODEL='courses.User'
+
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
@@ -121,6 +125,7 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
