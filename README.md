@@ -1,1 +1,1 @@
-# course-management
+# IT2201CourseApp
